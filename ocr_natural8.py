@@ -42,7 +42,7 @@ import yaml
 from . import preprocess as pp
 
 
-def load_template(path: Optional[str] = None) -> dict:
+import preprocess as pp
     """Load a YAML template describing Natural8 OCR regions and patterns.
 
     If ``path`` is None, defaults to ``natural8_template.yaml`` located
