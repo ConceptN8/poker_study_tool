@@ -1,0 +1,51 @@
+position,stack_bb_bucket,vs_situation,hand_class,action,size
+UTG,<10,unopened,premium,Jam,Jam
+UTG,<10,unopened,strong pair,Jam,Jam
+UTG,10-20,unopened,premium,Open,2.2bb
+UTG,10-20,unopened,strong pair,Open,2.2bb
+UTG,10-20,unopened,small pair,Fold,0
+UTG,20-40,unopened,premium,Open,2.5bb
+HJ,<10,unopened,premium,Jam,Jam
+HJ,<10,unopened,strong pair,Jam,Jam
+HJ,10-20,unopened,premium,Open,2.2bb
+HJ,10-20,unopened,strong pair,Open,2.2bb
+HJ,10-20,unopened,small pair,Jam,Jam
+HJ,20-40,unopened,premium,Open,2.5bb
+CO,<10,unopened,premium,Jam,Jam
+CO,<10,unopened,strong pair,Jam,Jam
+CO,<10,unopened,small pair,Jam,Jam
+CO,<10,unopened,strong broadway,Jam,Jam
+CO,10-20,unopened,premium,Open,2.3bb
+CO,10-20,unopened,strong pair,Open,2.3bb
+CO,10-20,unopened,small pair,Jam,Jam
+CO,10-20,unopened,strong broadway,Jam,Jam
+CO,20-40,unopened,premium,Open,2.5bb
+BTN,<10,unopened,premium,Jam,Jam
+BTN,<10,unopened,strong pair,Jam,Jam
+BTN,<10,unopened,small pair,Jam,Jam
+BTN,<10,unopened,strong broadway,Jam,Jam
+BTN,<10,unopened,suited connector,Jam,Jam
+BTN,10-20,unopened,premium,Open,2.5bb
+BTN,10-20,unopened,strong pair,Open,2.5bb
+BTN,10-20,unopened,small pair,Jam,Jam
+BTN,10-20,unopened,strong broadway,Jam,Jam
+BTN,10-20,unopened,suited connector,Jam,Jam
+BTN,20-40,unopened,premium,Open,2.5bb
+SB,<10,unopened,premium,Jam,Jam
+SB,<10,unopened,strong pair,Jam,Jam
+SB,<10,unopened,strong broadway,Jam,Jam
+SB,<10,unopened,small pair,Jam,Jam
+SB,10-20,unopened,premium,Jam,Jam
+SB,10-20,unopened,strong pair,Jam,Jam
+SB,10-20,unopened,strong broadway,Jam,Jam
+SB,10-20,unopened,small pair,Jam,Jam
+SB,20-40,unopened,premium,Jam,Jam
+BB,<10,vs_open,premium,Jam,Jam
+BB,<10,vs_open,strong pair,Jam,Jam
+BB,<10,vs_open,strong broadway,Jam,Jam
+BB,<10,vs_open,small pair,Fold,0
+BB,10-20,vs_open,premium,Jam,Jam
+BB,10-20,vs_open,strong pair,Jam,Jam
+BB,10-20,vs_open,strong broadway,Jam,Jam
+BB,10-20,vs_open,small pair,Fold,0
+BB,20-40,vs_open,premium,Jam,Jam
