@@ -1,0 +1,37 @@
+# Natural8 OCR Template
+#
+# This YAML file defines the approximate locations (as fractional
+# coordinates) of key HUD elements on the Natural8 client and
+# regular expressions to extract numerical values from the OCR
+# output.  Regions are expressed as [x, y, width, height] with
+# values between 0 and 1, relative to the full screenshot size.
+# Patterns should include a single capturing group for the value
+# of interest.  See ``app/ocr_natural8.py`` for usage.
+
+regions:
+  # Top‑left status bar showing level, time, places paid, avg stack, rank
+  header: [0.0, 0.0, 0.45, 0.1]
+  # The centre area above the table where the total pot is displayed
+  pot_box: [0.35, 0.30, 0.30, 0.08]
+
+# Patterns to parse from header/pot regions
+patterns:
+  players_left: "(\d+)\s*/\s*(\d+)"
+  avg_stack_bb: "Avg\.?\s*Stack\s*([0-9]+(?:\.[0-9]+)?)\s*BB"
+  places_paid: "Places\s*Paid\s*(\d+)"
+  pot: "Total\s*Pot\s*:?\s*([0-9]+(?:\.[0-9]+)?)\s*BB"
+
+# Patterns to parse from lobby screenshots (optional)
+tournament_fields:
+  buy_in: "(?:Buy[- ]?in)\s*\$?([0-9]+(?:\.[0-9]{1,2})?)"
+  bounty_flag: "(?:Bounty|Progressive\s*Bounty)"
+  bounty_min: "Progressive\s*Bounty.*?\$([0-9]+(?:\.[0-9]{1,2})?)"
+  starting_stack_bb: "Starting\s*Chips\s*\((\d+)\s*BB\)"
+  avg_stack_bb: "Average\s*Stack\s*([0-9]+(?:\.[0-9]+)?)\s*BB"
+  largest_stack_bb: "Largest\s*Stack\s*\S+\s*\((\d+(?:\.\d+)?)\s*BB\)"
+  players_left: "Players\s*Left\s*(\d+)\s*/\s*(\d+)"
+  places_paid: "Places\s*Paid\s*(\d+)"
+  reentry: "Re[- ]?entry\s*(None|Unlimited|\d+)"
+  blind_interval: "Blind\s*Interval\s*(\d+)\s*min"
+  table_type: "(6|7|8|9)\s*players?\s*per\s*table"
+  bubble_protection: "Bubble\s*Protection"
