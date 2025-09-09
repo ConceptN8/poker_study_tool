@@ -31,6 +31,21 @@ Where:
 If no exact match is found, the engine falls back to general
 concept notes from ``poker_study_tool.general_concept_analysis``.
 """
+from pathlib import Path   # <--- you add this line
+
+def find_range_csv() -> str:
+    here = Path(__file__).resolve().parent
+    candidates = [
+        here / "ranges" / "preflop_balanced_example.csv",
+        here.parent / "ranges" / "preflop_balanced_example.csv",
+        Path.cwd() / "ranges" / "preflop_balanced_example.csv",
+    ]
+    for p in candidates:
+        if p.exists():
+            return str(p)
+    raise FileNotFoundError(
+        "Could not find ranges/preflop_balanced_example.csv"
+    )
 
 from __future__ import annotations
 
@@ -52,7 +67,9 @@ def load_ranges(csv_path: Optional[str] = None) -> pd.DataFrame:
     """
     if csv_path is None:
         csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'ranges', 'preflop_balanced_example.csv')
-    df = pd.read_csv(csv_path)
+    df = csv_path = find_range_csv()
+return pd.read_csv(csv_path)
+
     df = df.set_index(['position', 'stack_bb_bucket', 'vs_situation', 'hand_class'])
     return df
 
