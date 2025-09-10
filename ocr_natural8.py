@@ -1,4 +1,5 @@
 #def extract_metadata ocr_natural8.py — fixed header & structure
+
 from __future__ import annotations
 
 import os
@@ -35,6 +36,7 @@ def load_template(path: Optional[str] = None) -> Dict[str, Any]:
             candidate = os.path.join(os.path.dirname(repo_root), "natural8_template.yaml")
         path = candidate
 
+    
     with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
