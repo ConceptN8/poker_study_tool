@@ -132,5 +132,5 @@ def extract_metadata(img_bgr: np.ndarray, template: Optional[Dict[str, Any]] = N
     Returns:
         Dict[str, Any]: OCR-extracted metadata dictionary from the table screenshot.
     """
-    """
+    
     return extract_hand_state(img_bgr, template)
