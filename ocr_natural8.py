@@ -114,3 +114,18 @@ def extract_hand_state(
 
     results.update(parsed)
     return results
+
+
+
+def extract_metadata(img_bgr: np.ndarray, template: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """
+    Wrapper function for compatibility. It calls `extract_hand_state` with the provided parameters and returns its result.
+
+    Args:
+        img_bgr (np.ndarray): BGR image of the Natural8 table screenshot.
+        template (Optional[Dict[str, Any]]): OCR template with regions and patterns. If None, the default template is loaded.
+
+    Returns:
+        Dict[str, Any]: OCR-extracted metadata dictionary from the table screenshot.
+    """
+    return extract_hand_state(img_bgr, template)
