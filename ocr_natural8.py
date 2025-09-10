@@ -1,4 +1,4 @@
-# ocr_natural8.py — fixed header & structure
+#def extract_metadata ocr_natural8.py — fixed header & structure
 from __future__ import annotations
 
 import os
@@ -117,15 +117,18 @@ def extract_hand_state(
 
 
 
-def extract_metadata(img_bgr: np.ndarray, template: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+def extract_metadata(img_bgr: np.ndarray, template: Optional[Dict[str, Any]] = None, **kwargs) -> Dict[str, Any]:
+
     """
     Wrapper function for compatibility. It calls `extract_hand_state` with the provided parameters and returns its result.
 
     Args:
         img_bgr (np.ndarray): BGR image of the Natural8 table screenshot.
         template (Optional[Dict[str, Any]]): OCR template with regions and patterns. If None, the default template is loaded.
+        **kwargs: Additional keyword arguments. These are ignored.
 
     Returns:
         Dict[str, Any]: OCR-extracted metadata dictionary from the table screenshot.
+    """
     """
     return extract_hand_state(img_bgr, template)
