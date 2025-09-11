@@ -19,7 +19,7 @@ patterns:
   players_left: "(\d+)\s*/\s*(\d+)"
   avg_stack_bb: "Avg\.?\s*Stack\s*([0-9]+(?:\.[0-9]+)?)\s*BB"
   places_paid: "Places\s*Paid\s*(\d+)"
-  pot: "Total\s*Pot\s*:?\s*([0-9]+(?:\.[0-9]+)?)\s*BB"
+ pot: 'Total\s*Pot\s*:\s*([0-9]+(?:\.[0-9]+)?)\s*BB'
 
 # Patterns to parse from lobby screenshots (optional)
 tournament_fields:
