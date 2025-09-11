@@ -1,4 +1,4 @@
-#def extract_metadata ocr_natural8.py — fixed header & structure
+#d
 
 from __future__ import annotations
 
