@@ -119,18 +119,38 @@ def extract_hand_state(
 
 
 
-def extract_metadata(img_bgr: np.ndarray, template: Optional[Dict[str, Any]] = None, **kwargs) -> Dict[str, Any]:
-
+def extract_metadata(img_bgr, template: Optional[Dict[str, Any]] = None, **kwargs) -> Dict[str, Any]:
     """
-    Wrapper function for compatibility. It calls `extract_hand_state` with the provided parameters and returns its result.
+    Accepts image input in various formats (np.ndarray, file path, bytes, or file-like object) and normalizes it to a BGR numpy array before extracting table metadata.
 
     Args:
-        img_bgr (np.ndarray): BGR image of the Natural8 table screenshot.
-        template (Optional[Dict[str, Any]]): OCR template with regions and patterns. If None, the default template is loaded.
-        **kwargs: Additional keyword arguments. These are ignored.
+        img_bgr: The table screenshot as a BGR numpy array, file path, bytes, or file-like object.
+        template: OCR template with regions and patterns. If None, the default template is loaded.
+        **kwargs: Additional keyword arguments (ignored).
 
     Returns:
         Dict[str, Any]: OCR-extracted metadata dictionary from the table screenshot.
     """
-    
+    # Normalize input to BGR image
+    if isinstance(img_bgr, np.ndarray):
+        pass  # already a decoded image
+    elif isinstance(img_bgr, str):
+        # If a file path is provided, read the image from disk
+        img_bgr = cv2.imread(img_bgr)
+    elif isinstance(img_bgr, (bytes, bytearray)):
+        # If bytes are provided, decode them into an image
+        buf = np.frombuffer(img_bgr, np.uint8)
+        img_bgr = cv2.imdecode(buf, cv2.IMREAD_COLOR)
+    elif hasattr(img_bgr, "read"):
+        # If a file-like object is provided, read and decode its data
+        data = img_bgr.read()
+        buf = np.frombuffer(data, np.uint8)
+        img_bgr = cv2.imdecode(buf, cv2.IMREAD_COLOR)
+    else:
+        raise TypeError(f"Unsupported image input type: {type(img_bgr)}")
+
+    if img_bgr is None or not hasattr(img_bgr, "shape"):
+        raise ValueError("Could not decode image input into a valid BGR array")
+
     return extract_hand_state(img_bgr, template)
+
